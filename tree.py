@@ -98,7 +98,7 @@ tim.left(90)
 tim.penup()
 tim.backward(400)
 tim.pendown()
-draw_my_tree(11, 6)
+draw_my_tree(12, 4)
 wn.update()
 
 turtle.done()
