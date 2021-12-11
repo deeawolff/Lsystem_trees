@@ -20,7 +20,7 @@ def my_tree(tree, recursion_number):
         X_1_11random.append("1")
     for i in range(40):
         X_1_11random.append("11")
-    for i in range(20):
+    for i in range(10):
         X_1_11random.append("X")
 
     for i in range(len(tree)):
