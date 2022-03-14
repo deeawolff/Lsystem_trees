@@ -2,7 +2,7 @@
 wikipedia: https://en.wikipedia.org/wiki/L-system
 
 # fractal_tree.py
-this file contains a straightforward implamentation of the Fractal tree (as shown in wikapedia)
+this file contains a straightforward implamentation of the Fractal tree (as shown in wikipedia)
 
 # tree.py
 this file contains a different version of the Fractal tree, with randomised lengths and and added rules.
