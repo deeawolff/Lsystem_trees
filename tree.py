@@ -29,7 +29,7 @@ def my_tree(tree, recursion_number):
             output = output + random.choice(X_1_11random)
 
         elif tree[i] == "0":
-            output += "1[0]0"
+            output += random.choice(["1[0]0","1[0]0","1[0]0"])
         elif tree[i] == "X":
             output += random.choice(["^0|"])
 
