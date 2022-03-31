@@ -1,0 +1,184 @@
+import random
+import turtle
+
+
+def is_number(possibleNumber):
+    try:
+        int(possibleNumber)
+    except:
+        return False
+    return True
+
+def my_tree(tree, recursion_number):
+    output = ""
+    skip_next = False
+    for i in range(len(tree)):
+        if skip_next:
+            continue
+
+        
+        if tree[i] == "f":
+
+            output = output + "ff"
+
+        elif tree[i] == "l":
+            output += "2[fl]"
+        elif is_number(tree[i]):
+            output += str(int(tree[i]) + 1)
+            if is_number(tree[i+1]):
+                skip_next = True
+                numtimesten = int(tree[i] * 10)
+                secondNumber = int(tree[i+1])
+                output += str(numtimesten + secondNumber + 1)
+
+
+        else:
+            output += tree[i]
+
+    if recursion_number == 0:
+        return output
+    else:
+        output = my_tree(output, recursion_number - 1)
+        return output
+
+
+def draw_my_tree(recursion_depth, tim_distance):
+    path = my_tree("fl", recursion_depth)
+    print(path)
+    saved_states = []
+    for i in range(len(path)):
+        if path[i] == "f":
+            tim.forward(tim_distance)
+
+        if is_number(path[i]):
+            repeat_counter = int(path[i])
+        
+        elif path[i] == "[":
+            saved_states.append(get_turtle_state(tim))            
+
+        elif path[i] == "]":
+            tim.penup()
+            restore_turtle_state(tim, saved_states[-1])
+            tim.pendown()
+            del saved_states[-1]
+
+
+        elif path[i] == "|":
+            tim.penup()
+            restore_turtle_state(tim, saved_states[-1])
+            tim.pendown()
+            del saved_states[-1]
+
+        elif path[i] == "^":
+            saved_states.append(get_turtle_state(tim))
+            tim.left(random.randint(-30, 30))
+
+
+def get_turtle_state(_turtle):
+    return _turtle.heading(), _turtle.position()
+
+
+def restore_turtle_state(_tuimport random
+import turtle
+
+
+def is_number(possibleNumber):
+    try:
+        int(possibleNumber)
+    except:
+        return False
+    return True
+
+def my_tree(tree, recursion_number):
+    output = ""
+    skip_next = False
+    for i in range(len(tree)):
+        if skip_next:
+            continue
+
+        
+        if tree[i] == "f":
+
+            output = output + "ff"
+
+        elif tree[i] == "0":
+            output += "2[f0]"
+        elif is_number(tree[i]):
+            output += str(int(tree[i]) + 1)
+            if is_number(tree[i+1]):
+                skip_next = True
+                numtimesten = int(tree[i] * 10)
+                secondNumber = int(tree[i+1])
+                output += str(numtimesten + secondNumber + 1)
+
+
+        else:
+            output += tree[i]
+
+    if recursion_number == 0:
+        return output
+    else:
+        output = my_tree(output, recursion_number - 1)
+        return output
+
+
+def draw_my_tree(recursion_depth, tim_distance):
+    path = my_tree("f0", recursion_depth)
+    print(path)
+    saved_states = []
+    for i in range(len(path)):
+        if path[i] == "f":
+            tim.forward(tim_distance)
+
+        #elif path[i] == "0":
+        #    tim.color("green")
+        #    tim.forward(tim_distance)
+        #    tim.color("blue")
+
+
+        
+        elif path[i] == "[":
+            saved_states.append(get_turtle_state(tim))
+            tim.left(random.choice([10, 10, 15, 15, 20, 20, 30, 35, 40]))
+
+        elif path[i] == "]":
+            tim.penup()
+            restore_turtle_state(tim, saved_states[-1])
+            tim.pendown()
+            del saved_states[-1]
+            tim.right(random.choice([10, 10, 10, 10, 10, 20, 20, 20, 30, 35, 40]))
+
+
+        elif path[i] == "|":
+            tim.penup()
+            restore_turtle_state(tim, saved_states[-1])
+            tim.pendown()
+            del saved_states[-1]
+
+        elif path[i] == "^":
+            saved_states.apprtle, state):
+    _turtle.setheading(state[0])
+    _turtle.setposition(state[1][0], state[1][1])
+
+
+#wn = turtle.Screen()
+#wn.bgcolor("black")
+#wn.title("Turtle")
+#wn.tracer(0)#
+
+#tim = turtle.Turtle()
+
+#tim.color('blue', 'purple')
+#tim.begin_fill()
+#tim.speed(0)
+
+
+#tim.left(90)
+#tim.penup()
+#tim.backward(400)
+#tim.pendown()
+#draw_my_tree(12, 4)
+#wn.update()
+
+#turtle.done()
+print(my_tree("f0", 7))
