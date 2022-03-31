@@ -46,7 +46,7 @@ def draw_my_tree(recursion_depth, tim_distance):
     path = my_tree("fl", recursion_depth)
     print(path)
     saved_states = []
-    for i in range(len(path)):
+    while i < len(path):
         if path[i] == "f":
             tim.forward(tim_distance)
 
@@ -54,6 +54,7 @@ def draw_my_tree(recursion_depth, tim_distance):
             repeat_counter = int(path[i])
         
         elif path[i] == "[":
+            go_back_to_this_p1ace = i
             saved_states.append(get_turtle_state(tim))            
 
         elif path[i] == "]":
@@ -61,18 +62,11 @@ def draw_my_tree(recursion_depth, tim_distance):
             restore_turtle_state(tim, saved_states[-1])
             tim.pendown()
             del saved_states[-1]
+            if repeat_counter > 0:
+                repeat_counter -= 1
+                
 
-
-        elif path[i] == "|":
-            tim.penup()
-            restore_turtle_state(tim, saved_states[-1])
-            tim.pendown()
-            del saved_states[-1]
-
-        elif path[i] == "^":
-            saved_states.append(get_turtle_state(tim))
-            tim.left(random.randint(-30, 30))
-
+    i += 1 
 
 def get_turtle_state(_turtle):
     return _turtle.heading(), _turtle.position()
