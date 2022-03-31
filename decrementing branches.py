@@ -77,24 +77,24 @@ def restore_turtle_state(_turtle, state):
     _turtle.setposition(state[1][0], state[1][1])
 
 
-#wn = turtle.Screen()
-#wn.bgcolor("black")
-#wn.title("Turtle")
-#wn.tracer(0)#
+wn = turtle.Screen()
+wn.bgcolor("black")
+wn.title("Turtle")
+wn.tracer(0)#
 
-#tim = turtle.Turtle()
+tim = turtle.Turtle()
 
-#tim.color('blue', 'purple')
-#tim.begin_fill()
-#tim.speed(0)
+tim.color('blue', 'purple')
+tim.begin_fill()
+tim.speed(0)
 
 
-#tim.left(90)
-#tim.penup()
-#tim.backward(400)
-#tim.pendown()
-#draw_my_tree(12, 4)
-#wn.update()
+tim.left(90)
+tim.penup()
+tim.backward(400)
+tim.pendown()
+draw_my_tree(12, 4)
+wn.update()
 
-#turtle.done()
+turtle.done()
 print(my_tree("f0", 7))
