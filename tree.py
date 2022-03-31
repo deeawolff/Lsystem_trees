@@ -9,7 +9,6 @@ wn.tracer(0)
 tim = turtle.Turtle()
 
 tim.color('blue', 'purple')
-tim.begin_fill()
 tim.speed(0)
 
 
