@@ -58,7 +58,7 @@ def draw_my_tree(recursion_depth, tim_distance):
     saved_states = []
     i = 0
     repeat_counters = [0]
-    angles = []
+    angles = [0]
     go_back_to_this_place = []
     while i < len(path):
         if path[i] == "f":
@@ -72,7 +72,8 @@ def draw_my_tree(recursion_depth, tim_distance):
             go_back_to_this_place.append(i)
             saved_states.append(get_turtle_state(tim))
             tim.left(90)
-            tim.right(angles[-1] * repeat_counters[-1])
+            tim.right((angles[-1] * repeat_counters[-1]) + angles[-1])
+            print(f"angles = {angles}, current_angle = {(angles[-1] * repeat_counters[-1]) + angles[-1]} ")
 
         elif path[i] == "]":
             tim.penup()
@@ -83,12 +84,12 @@ def draw_my_tree(recursion_depth, tim_distance):
                 repeat_counters[-1] -= 1
                 i = go_back_to_this_place[-1]
             else:
-
+                del angles[-1]
                 del go_back_to_this_place[-1]
                 del repeat_counters[-1]
                 del saved_states[-1]
 
-        print(angles)
+
         i += 1  # increments i by one before the loop ends (it's a bit like a for loop, but I can do more stuff with i
 
 
