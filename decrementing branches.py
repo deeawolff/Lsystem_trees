@@ -9,7 +9,7 @@ wn.tracer(1)  #
 tim = turtle.Turtle()
 
 tim.color('blue', 'purple')
-tim.speed(2)
+tim.speed(3)
 
 
 def is_number(possibleNumber):
@@ -66,14 +66,16 @@ def draw_my_tree(recursion_depth, tim_distance):
 
         elif is_number(path[i]):
             repeat_counters.append(int(path[i]))
+            print(f"add        repeat_counters = {repeat_counters}")
             angles.append(180 / (int(path[i]) + 1))
+
 
         elif path[i] == "[":
             go_back_to_this_place.append(i)
             saved_states.append(get_turtle_state(tim))
             tim.left(90)
-            tim.right((angles[-1] * repeat_counters[-1]) + angles[-1])
-            print(f"angles = {angles}, current_angle = {(angles[-1] * repeat_counters[-1]) + angles[-1]} ")
+            tim.right((angles[-1] * repeat_counters[-1]))
+            print(f"right        actual_angle = {(angles[-1] * repeat_counters[-1])}")
 
         elif path[i] == "]":
             tim.penup()
@@ -82,13 +84,15 @@ def draw_my_tree(recursion_depth, tim_distance):
 
             if repeat_counters[-1] > 0:
                 repeat_counters[-1] -= 1
+                print(f"decrement  i = {i}")
                 i = go_back_to_this_place[-1]
+
+                print(f"gone back to  = {go_back_to_this_place[-1]}   go_back_to_this_place = {go_back_to_this_place}")
             else:
                 del angles[-1]
                 del go_back_to_this_place[-1]
                 del repeat_counters[-1]
                 del saved_states[-1]
-
 
         i += 1  # increments i by one before the loop ends (it's a bit like a for loop, but I can do more stuff with i
 
